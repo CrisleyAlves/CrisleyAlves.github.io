@@ -1,0 +1,385 @@
+@charset 'utf-8';
+@import 'base';
+@import "../less/fontawesome.less";
+@import "../less/solid.less";
+@import "../less/brands.less";
+
+// FONTES
+@corpo: 'Open Sans', sans-serif;
+
+@light:  300;
+@regular:400;
+@bold:   700;
+
+@width: 1200px;
+@raio: 10px;
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+.ao-topo{
+	background-color: @rosa;
+}
+
+.p-relative{
+	position: relative;
+}
+
+.f-left{
+	float: left;
+}
+
+.f-right{
+	float: right;
+}
+
+@keyframes scroll {
+	0% {
+	  top: 100%
+	}
+	100% {
+	  top: 200%;
+	}
+  }
+
+@media screen and (min-width: 0px) and (max-width:600px){
+
+	html, body{
+		min-width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+
+	header{
+		width: 100%;
+		padding-top: 15%;
+		min-width: 100%!important;
+		box-sizing: border-box;
+		text-align: center;
+		
+		.right{
+			background-color: @vermelho;
+			color: @branco;
+			box-sizing: border-box;
+			width: 100%;
+			padding-top: 15%;
+			text-align: left;
+			padding-left: 10%;
+			padding-right: 10%;
+			padding-bottom: 30%;
+
+			.item{
+				font-weight: @bold;
+				font-size: 18px;
+				margin-bottom: 15px;
+			}
+
+			.text{
+				font-weight: @light;
+			}
+
+			.social{			
+
+				.linkedin{	
+					margin-top: 15px;
+					.fa-icon;
+					.fab;			
+					&::before{
+						content: @fa-var-linkedin;
+						color: @branco;
+						font-size: 23px;
+						display: block;
+						position: relative;
+						text-align: center;
+					}
+					&:hover{
+						&:before{
+							color: @azul;
+							opacity: 0.8;
+						}
+					}
+				}
+	
+				.github{	
+					.fa-icon;
+					.fab;			
+					&::before{
+						content: @fa-var-github;
+						color: @branco;
+						font-size: 23px;
+						display: block;
+						position: relative;
+						text-align: center;
+					}
+					&:hover{
+						&:before{
+							color: @azul;
+							opacity: 0.8;
+						}
+					}
+				}
+			}
+
+			.curriculo{
+				font-size: 16px;
+				font-weight: @bold;
+				color: @azul;
+				display: inline-block;
+				background-color: @branco;
+				padding: 7px 15px;
+
+				&:hover{
+					background-color: @azul;
+					color: @branco;
+					border: 1px solid @azul;
+				}
+
+			}
+		}
+
+		.left{
+			width: 100%;
+			box-sizing: border-box;
+			// float: none;
+			padding-bottom: 15%;
+			padding-left: 10%;
+			padding-right: 10%;
+
+			.photo{
+				width: 50%;
+				border-radius: 50%;
+			}
+
+			h1, h2{
+				width: 100%;
+				font-size: 2.5em;
+				font-weight: @bold;
+				color: #111111;
+			}
+			
+			h2{
+				color: #35346a;
+				margin-top: -15px;
+			}
+
+			.job, .description{
+				font-size: 1.3em;
+				font-weight: @light;
+				color: #111111;
+				margin-bottom: 15px;
+				width: 100%;
+				strong{
+					color: @vermelho;
+				}
+			}
+
+			.projects{
+				font-weight: @bold;
+				font-size: 2.5em;
+				color: #35346a;
+				margin-bottom: 15px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.project{
+				color: @vermelho;
+				font-weight: @bold;
+				font-size: 18px;
+				display: block;
+				margin-bottom: 5px;
+				text-align: left;
+				span{
+					color: #686465;
+				}
+
+				&:hover{
+					color: @preto;
+					span{
+						color: @preto;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:601px){
+	body, html {
+		height: 100%;
+		max-width: 100%;
+	}
+
+	header{
+		height: 100%;
+		overflow: hidden;
+		.right{
+			background-color: @vermelho;
+			color: @branco;
+			width: 30%;
+			height: 100%;
+			box-sizing: border-box;
+			padding-left: 5%;
+			padding-top: 13%;
+
+			.item{
+				font-weight: @bold;
+				font-size: 18px;
+				margin-bottom: 15px;
+			}
+
+			.text{
+				font-weight: @light;
+			}
+
+			.social{
+				
+
+				.linkedin{	
+					margin-top: 15px;
+					.fa-icon;
+					.fab;			
+					&::before{
+						content: @fa-var-linkedin;
+						color: @branco;
+						font-size: 23px;
+						display: block;
+						position: relative;
+						text-align: center;
+					}
+					&:hover{
+						&:before{
+							color: @azul;
+							opacity: 0.8;
+						}
+					}
+				}
+	
+				.github{	
+					.fa-icon;
+					.fab;			
+					&::before{
+						content: @fa-var-github;
+						color: @branco;
+						font-size: 23px;
+						display: block;
+						position: relative;
+						text-align: center;
+					}
+					&:hover{
+						&:before{
+							color: @azul;
+							opacity: 0.8;
+						}
+					}
+				}
+			}
+
+			.curriculo{
+				font-size: 16px;
+				font-weight: @bold;
+				color: @azul;
+				display: inline-block;
+				background-color: @branco;
+				padding: 7px 15px;
+
+				&:hover{
+					background-color: @azul;
+					color: @branco;
+					border: 1px solid @azul;
+				}
+
+			}
+		}
+
+		.left{
+			height: 100%;
+			width: 70%;
+			padding-top: 8%;
+			padding-left: 7%;
+			box-sizing: border-box;
+
+			.photo{
+				width: 15%;
+				border-radius: 50%;
+				position: absolute;
+				left: -8%;
+			}
+
+			h1, h2{
+				font-size: 36px;
+				font-weight: @bold;
+				color: #111111;
+			}
+			
+			h2{
+				color: #35346a;
+				margin-top: -15px;
+			}
+
+			.job, .description{
+				font-size: 18px;
+				font-weight: @light;
+				color: #111111;
+				margin-bottom: 15px;
+				width: 60%;
+
+				strong{
+					color: @vermelho;
+				}
+			}
+
+			.projects{
+				font-weight: @bold;
+				font-size: 18px;
+				color: #35346a;
+				margin-bottom: 15px;
+			}
+
+			.project{
+				color: @vermelho;
+				font-weight: @bold;
+				font-size: 18px;
+				display: block;
+				margin-bottom: 5px;
+				span{
+					color: #686465;
+				}
+
+				&:hover{
+					color: @preto;
+					span{
+						color: @preto;
+					}
+				}
+			}
+		}
+	}
+
+}

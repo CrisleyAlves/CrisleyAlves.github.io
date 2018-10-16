@@ -1,0 +1,106 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@testing-name: 'testing';
+@testing-x: 0px;
+@testing-y: 46px;
+@testing-offset-x: 0px;
+@testing-offset-y: -46px;
+@testing-width: 40px;
+@testing-height: 32px;
+@testing-total-width: 144px;
+@testing-total-height: 78px;
+@testing-image: '../images/spritesheet.png';
+@testing: 0px 46px 0px -46px 40px 32px 144px 78px '../images/spritesheet.png' 'testing';
+@twitter-name: 'twitter';
+@twitter-x: 0px;
+@twitter-y: 0px;
+@twitter-offset-x: 0px;
+@twitter-offset-y: 0px;
+@twitter-width: 24px;
+@twitter-height: 20px;
+@twitter-total-width: 144px;
+@twitter-total-height: 78px;
+@twitter-image: '../images/spritesheet.png';
+@twitter: 0px 0px 0px 0px 24px 20px 144px 78px '../images/spritesheet.png' 'twitter';
+@whitetriangle-name: 'whitetriangle';
+@whitetriangle-x: 0px;
+@whitetriangle-y: 20px;
+@whitetriangle-offset-x: 0px;
+@whitetriangle-offset-y: -20px;
+@whitetriangle-width: 144px;
+@whitetriangle-height: 26px;
+@whitetriangle-total-width: 144px;
+@whitetriangle-total-height: 78px;
+@whitetriangle-image: '../images/spritesheet.png';
+@whitetriangle: 0px 20px 0px -20px 144px 26px 144px 78px '../images/spritesheet.png' 'whitetriangle';
+@spritesheet-width: 144px;
+@spritesheet-height: 78px;
+@spritesheet-image: '../images/spritesheet.png';
+@spritesheet-sprites: @testing @twitter @whitetriangle;
+@spritesheet: 144px 78px '../images/spritesheet.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: e(extract(@sprite, 10));
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}
